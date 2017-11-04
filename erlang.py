@@ -9,11 +9,14 @@ def erlang(x):
 
 # Get samples
 def samples(k):
-    return np.random.choice(xList, 100,p=yList)
+    return np.random.choice(xList, samples_length,p=yList)
 
 # Maximum Likelihood
 def estimate(n):
-    return 2*n / np.sum(samples(n))
+    return (2*samples_length) / np.sum(samples(n))
+
+# samples length
+samples_length = 100;
 
 # Some random numbers
 xRange = np.arange( 0, 20, .01)
@@ -33,16 +36,10 @@ yList = np.append(listProb, [missingProb])
 # adding a number to the list so nxList and yList are same length
 xList = np.append(xRange, [20])
 
-# randomly choosing numbers to plot
-print(estimate(50))
+# Finding the original Omega chosen in the Erlang function
+print(estimate(150))
 
 
-
-# printing the result
-print(h)
-
-# to see the graph
-plt.plot(h);
 
 
 
