@@ -7,6 +7,14 @@ import matplotlib.pyplot as plt
 def erlang(x):
     return 0.5**2 * x * np.exp(-x/2)
 
+# Get samples
+def samples(k):
+    return np.random.choice(xList, 100,p=yList)
+
+# Maximum Likelihood
+def estimate(n):
+    return 2*n / np.sum(samples(n))
+
 # Some random numbers
 xRange = np.arange( 0, 20, .01)
 
@@ -26,7 +34,9 @@ yList = np.append(listProb, [missingProb])
 xList = np.append(xRange, [20])
 
 # randomly choosing numbers to plot
-h = np.random.choice(xList, 100,p=yList)
+print(estimate(50))
+
+
 
 # printing the result
 print(h)
